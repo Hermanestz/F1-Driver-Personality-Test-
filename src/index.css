@@ -12,21 +12,21 @@
 
 @font-face {
   font-family: 'Formula1';
-  src: url('https://fonts.cdnfonts.com/s/14884/Formula1-Regular.woff') format('woff');
+  src: url('../Font/Formula1-Regular_web_0.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Formula1';
-  src: url('https://fonts.cdnfonts.com/s/14884/Formula1-Bold.woff') format('woff');
+  src: url('../Font/Formula1-Bold_web_0.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Formula1';
-  src: url('https://fonts.cdnfonts.com/s/14884/Formula1-Wide.woff') format('woff');
+  src: url('../Font/Formula1-Wide_web_0.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
 }
