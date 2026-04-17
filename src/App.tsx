@@ -5,7 +5,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Timer, Flag, Trophy, RotateCcw, ChevronRight, Gauge } from 'lucide-react';
+import { Timer, Flag, Trophy, RotateCcw, ChevronRight } from 'lucide-react';
 import { DRIVERS, QUESTIONS } from './constants';
 import { Driver, DriverProfile } from './types';
 
@@ -303,8 +303,26 @@ export default function App() {
               key="result"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="max-w-4xl mx-auto"
+              className="max-w-4xl mx-auto space-y-6"
             >
+              {/* Lap Time Display */}
+              <motion.div 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5 }}
+                className="flex items-center justify-center gap-2"
+              >
+                <img 
+                  src="/images/fastest_lap.jpg" 
+                  alt="Fastest Lap" 
+                  className="h-full object-contain"
+                  style={{ height: '2.5rem' }}
+                />
+                <div className="text-xl md:text-2xl font-black f1-font font-mono text-purple-500">
+                  {formatLapTime(totalTime)}
+                </div>
+              </motion.div>
+
               {/* Official F1 Driver Card Layout - 2026 Edition */}
               <div 
                 className="relative overflow-hidden rounded-tr-[40px] rounded-bl-[40px] shadow-2xl flex flex-col lg:flex-row bg-f1-card border-l-[12px]"
@@ -425,25 +443,11 @@ export default function App() {
                 transition={{ delay: 1.4 }}
                 className="mt-12 space-y-8"
               >
-                <div className="grid md:grid-cols-2 gap-4 text-left">
+                <div className="text-left">
                   <div className="bg-f1-card border border-f1-border p-6 md:p-8 rounded-2xl space-y-4">
                     <div className="text-xs uppercase font-bold text-f1-red tracking-widest f1-font">Driver Profile</div>
                     <div className="text-lg md:text-xl font-medium text-white/90 leading-relaxed">{resultDriver.description}</div>
                   </div>
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 1.6 }}
-                    className="bg-f1-card border border-f1-border p-6 md:p-8 rounded-2xl space-y-4"
-                  >
-                    <div className="text-xs uppercase font-bold text-f1-red tracking-widest f1-font">Lap Time</div>
-                    <div className="flex items-center gap-3">
-                      <Gauge size={32} className="text-f1-red" />
-                      <div className="text-3xl md:text-4xl font-black italic f1-font font-mono">
-                        {formatLapTime(totalTime)}
-                      </div>
-                    </div>
-                  </motion.div>
                 </div>
 
                 <motion.button
