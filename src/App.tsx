@@ -115,10 +115,13 @@ export default function App() {
   const [userProfile, setUserProfile] = useState<DriverProfile>(initialProfile);
   const [resultDriver, setResultDriver] = useState<Driver | null>(null);
   const [matchPercent, setMatchPercent] = useState(0);
+  const [totalTime, setTotalTime] = useState(0);
+  const startTimeRef = useRef<number>(0);
 
   const startTest = () => {
     setUserProfile(initialProfile);
     setCurrentQuestion(0);
+    startTimeRef.current = Date.now();
     setGameState('test');
   };
 
@@ -175,9 +178,18 @@ export default function App() {
     // We map distance 0 to 99%, distance 10 to 70%
     const match = Math.max(50, Math.min(99, Math.round(99 - (minDistance * 2.5))));
 
+    const elapsed = Date.now() - startTimeRef.current;
+    setTotalTime(elapsed);
     setResultDriver(bestMatch);
     setMatchPercent(match);
     setGameState('result');
+  };
+
+  const formatLapTime = (ms: number) => {
+    const minutes = Math.floor(ms / 60000);
+    const seconds = Math.floor((ms % 60000) / 1000);
+    const milliseconds = Math.floor((ms % 1000));
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${milliseconds.toString().padStart(3, '0')}`;
   };
 
   return (
@@ -413,11 +425,25 @@ export default function App() {
                 transition={{ delay: 1.4 }}
                 className="mt-12 space-y-8"
               >
-                <div className="text-left">
+                <div className="grid md:grid-cols-2 gap-4 text-left">
                   <div className="bg-f1-card border border-f1-border p-6 md:p-8 rounded-2xl space-y-4">
                     <div className="text-xs uppercase font-bold text-f1-red tracking-widest f1-font">Driver Profile</div>
                     <div className="text-lg md:text-xl font-medium text-white/90 leading-relaxed">{resultDriver.description}</div>
                   </div>
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1.6 }}
+                    className="bg-f1-card border border-f1-border p-6 md:p-8 rounded-2xl space-y-4"
+                  >
+                    <div className="text-xs uppercase font-bold text-f1-red tracking-widest f1-font">Lap Time</div>
+                    <div className="flex items-center gap-3">
+                      <Gauge size={32} className="text-f1-red" />
+                      <div className="text-3xl md:text-4xl font-black italic f1-font font-mono">
+                        {formatLapTime(totalTime)}
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
 
                 <motion.button
