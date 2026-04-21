@@ -254,7 +254,7 @@ export default function App() {
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-f1-border pb-6">
                 <div className="space-y-1">
                   <div className="text-f1-red font-bold uppercase tracking-tighter text-sm f1-font">Session Progress</div>
-                  <div className="text-2xl font-black italic uppercase f1-font">
+                  <div className="text-lg font-black italic uppercase f1-font">
                     LAP {String(currentQuestion + 1).padStart(2, '0')} <span className="text-white/20">/ {QUESTIONS.length}</span>
                   </div>
                 </div>
@@ -263,8 +263,8 @@ export default function App() {
 
               <div className="space-y-1">
                 <div className="text-right">
-                  <div className="text-4xl font-black f1-font text-f1-red">TEAM</div>
-                  <div className="text-4xl font-black f1-font">RADIO</div>
+                  <div className="text-2xl font-black f1-font text-f1-red">TEAM</div>
+                  <div className="text-2xl font-black f1-font">RADIO</div>
                 </div>
               </div>
               <div className="flex items-end justify-center gap-1 h-16">
@@ -303,7 +303,7 @@ export default function App() {
                       className="space-y-6"
                     >
                       <motion.h2 
-                        className="text-sm leading-tight chinese-text"
+                        className="text-xs leading-tight chinese-text"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0 }}
