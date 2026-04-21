@@ -46,7 +46,7 @@ body {
 
 .chinese-text {
   font-family: var(--font-chinese);
-  font-size: 2em;
+  font-size: 1.3em;
 }
 
 h1, h2, h3, .f1-font {

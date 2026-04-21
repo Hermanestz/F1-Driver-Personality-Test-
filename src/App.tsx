@@ -200,7 +200,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-f1-black text-white selection:bg-f1-red/30">
-      <div className={`mx-auto px-6 py-12 min-h-screen flex flex-col justify-center transition-all duration-500 ${gameState === 'result' ? 'max-w-5xl' : 'max-w-2xl'}`}>
+      <div className="mx-auto px-4 py-8 min-h-screen flex flex-col justify-center transition-all duration-500 w-full">
         
         <AnimatePresence mode="wait">
           {gameState === 'welcome' && (
@@ -234,7 +234,7 @@ export default function App() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={startTest}
-                className="group relative inline-flex items-center gap-3 bg-f1-red hover:bg-f1-red/90 px-10 py-5 rounded-tr-xl rounded-bl-xl font-bold uppercase tracking-widest transition-colors overflow-hidden"
+                className="group relative inline-flex items-center gap-3 bg-f1-red hover:bg-f1-red/90 px-8 py-4 rounded-sm font-bold uppercase tracking-widest transition-colors overflow-hidden"
               >
                 <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
                 <span className="f1-font">Start Session</span>
@@ -254,7 +254,7 @@ export default function App() {
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-f1-border pb-6">
                 <div className="space-y-1">
                   <div className="text-f1-red font-bold uppercase tracking-tighter text-sm f1-font">Session Progress</div>
-                  <div className="text-4xl font-black italic uppercase f1-font">
+                  <div className="text-2xl font-black italic uppercase f1-font">
                     LAP {String(currentQuestion + 1).padStart(2, '0')} <span className="text-white/20">/ {QUESTIONS.length}</span>
                   </div>
                 </div>
@@ -303,7 +303,7 @@ export default function App() {
                       className="space-y-6"
                     >
                       <motion.h2 
-                        className="text-2xl leading-tight chinese-text"
+                        className="text-sm leading-tight chinese-text"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0 }}
@@ -323,7 +323,7 @@ export default function App() {
                             transition={{ delay: 0.1 + idx * 0.1 }}
                             className="w-full text-left p-5 rounded-none bg-f1-card border border-f1-border hover:border-f1-red transition-colors flex items-center justify-between group flex-row-reverse"
                           >
-                            <span className="text-xl text-white/80 group-hover:text-white transition-colors chinese-text text-right">
+                            <span className="text-xs text-white/80 group-hover:text-white transition-colors chinese-text text-right">
                               {option.text}
                             </span>
                             <ChevronRight size={18} className="text-f1-gray group-hover:text-f1-red transition-colors" />
@@ -359,9 +359,12 @@ export default function App() {
                   <img 
                     src={resultDriver.carImage} 
                     alt="F1 Car"
-                    className="h-32 md:h-48 object-contain"
-                    style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.5))' }}
+                    className="h-16 md:h-24 object-contain"
+                    style={{ 
+                      filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.5))'
+                    }}
                   />
+                  
                   {[...Array(6)].map((_, i) => (
                     <motion.div 
                       key={i}
@@ -374,7 +377,7 @@ export default function App() {
                         background: `linear-gradient(to right, rgba(255,255,255,${0.6 - i * 0.08}), transparent)`
                       }}
                       animate={{ 
-                        x: [0, 80 + i * 30],
+                        x: [0, -(80 + i * 30)],
                         opacity: [0.8, 0],
                         y: ['-50%', `${-30 + i * 12}%`]
                       }}
@@ -406,7 +409,7 @@ export default function App() {
               key="result"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="max-w-4xl mx-auto space-y-6"
+              className="w-full mx-auto space-y-6"
             >
               {/* Lap Time Display */}
               <motion.div 
@@ -428,7 +431,7 @@ export default function App() {
 
               {/* Official F1 Driver Card Layout - 2026 Edition */}
               <div 
-                className="relative overflow-hidden rounded-tr-[40px] rounded-bl-[40px] shadow-2xl bg-f1-card border-l-[12px]"
+                className="relative overflow-hidden shadow-2xl bg-f1-card border-l-[12px]"
                 style={{ 
                   borderLeftColor: resultDriver.teamColor,
                   aspectRatio: '16/9',
@@ -480,7 +483,7 @@ export default function App() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 1.2 }}
-                    className="w-12 h-12 sm:w-16 sm:w-20 flex items-center justify-center p-1 bg-white/5 rounded-lg border border-white/10"
+                    className="w-12 h-12 sm:w-16 sm:w-20 flex items-center justify-center"
                   >
                     <img 
                       src={resultDriver.teamLogo} 
@@ -524,8 +527,8 @@ export default function App() {
                 className="mt-12 space-y-8"
               >
                 <div className="text-left">
-                  <div className="bg-f1-card border border-f1-border p-6 md:p-8 rounded-2xl space-y-4">
-                    <div className="text-sm uppercase font-bold text-f1-red tracking-widest f1-font">Driver Profile</div>
+                  <div className="bg-f1-card border border-f1-border p-6 md:p-8 space-y-4">
+                    <div className="text-base uppercase font-bold tracking-widest f1-font" style={{ color: resultDriver.teamColor }}>Driver Profile</div>
                     <div className="text-xl md:text-2xl text-white/90 leading-relaxed">{resultDriver.description}</div>
                   </div>
                 </div>
