@@ -43,7 +43,7 @@ const LapTimer = ({ isActive, reset }: { isActive: boolean; reset: boolean }) =>
   };
 
   return (
-    <div className="flex items-center gap-2 font-mono text-f1-red text-lg tracking-wider">
+    <div className="flex items-center gap-2 font-mono text-f1-red text-base tracking-wider">
       <Timer size={20} />
       <span>{formatTime(time)}</span>
     </div>
@@ -254,7 +254,7 @@ export default function App() {
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-f1-border pb-6">
                 <div className="space-y-1">
                   <div className="text-f1-red font-bold uppercase tracking-tighter text-sm f1-font">Session Progress</div>
-                  <div className="text-lg font-black italic uppercase f1-font">
+                  <div className="text-base font-black italic uppercase f1-font">
                     LAP {String(currentQuestion + 1).padStart(2, '0')} <span className="text-white/20">/ {QUESTIONS.length}</span>
                   </div>
                 </div>
@@ -422,7 +422,7 @@ export default function App() {
                   src="/images/fastest_lap.jpg" 
                   alt="Fastest Lap" 
                   className="h-full object-contain"
-                  style={{ height: '2.5rem' }}
+                  style={{ height: '1.67rem' }}
                 />
                 <div className="text-xl md:text-2xl font-bold f1-font font-mono text-purple-500">
                   {formatLapTime(totalTime)}
@@ -454,7 +454,7 @@ export default function App() {
                       <div className="text-sm sm:text-lg md:text-xl font-medium text-white/80 f1-font leading-tight">
                         {resultDriver.name.split(' ')[0]}
                       </div>
-                      <div className="text-xl sm:text-2xl md:text-3xl font-black text-white f1-font leading-none">
+                      <div className="text-lg sm:text-xl md:text-2xl font-black text-white f1-font leading-none">
                         {resultDriver.name.split(' ').slice(1).join(' ')}
                       </div>
                     </motion.div>
