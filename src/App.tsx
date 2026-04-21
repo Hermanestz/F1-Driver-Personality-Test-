@@ -225,8 +225,8 @@ export default function App() {
                   F1 Driver <br />
                   <span className="text-f1-red">Personality</span> Test
                 </h1>
-                <p className="text-f1-gray text-lg max-w-md mx-auto font-medium">
-                  Find your match for the 2026 Formula 1 season.
+                <p className="text-f1-gray text-xl max-w-md mx-auto">
+                  找出与你最匹配的2026赛季F1车手
                 </p>
               </div>
 
@@ -261,6 +261,12 @@ export default function App() {
                 <LapTimer isActive={gameState === 'test'} reset={currentQuestion === 0} />
               </div>
 
+              <div className="space-y-1">
+                <div className="text-right">
+                  <div className="text-4xl font-black f1-font text-f1-red">TEAM</div>
+                  <div className="text-4xl font-black f1-font">RADIO</div>
+                </div>
+              </div>
               <div className="flex items-end justify-center gap-1 h-16">
                 {soundBars.map((height, i) => {
                   const totalBars = soundBars.length;
@@ -297,7 +303,7 @@ export default function App() {
                       className="space-y-6"
                     >
                       <motion.h2 
-                        className="text-2xl font-bold leading-tight chinese-text"
+                        className="text-2xl leading-tight chinese-text"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0 }}
@@ -317,7 +323,7 @@ export default function App() {
                             transition={{ delay: 0.1 + idx * 0.1 }}
                             className="w-full text-left p-5 rounded-none bg-f1-card border border-f1-border hover:border-f1-red transition-colors flex items-center justify-between group flex-row-reverse"
                           >
-                            <span className="text-xl font-medium text-white/80 group-hover:text-white transition-colors chinese-text text-right">
+                            <span className="text-xl text-white/80 group-hover:text-white transition-colors chinese-text text-right">
                               {option.text}
                             </span>
                             <ChevronRight size={18} className="text-f1-gray group-hover:text-f1-red transition-colors" />
@@ -519,8 +525,8 @@ export default function App() {
               >
                 <div className="text-left">
                   <div className="bg-f1-card border border-f1-border p-6 md:p-8 rounded-2xl space-y-4">
-                    <div className="text-xs uppercase font-bold text-f1-red tracking-widest f1-font">Driver Profile</div>
-                    <div className="text-lg md:text-xl font-medium text-white/90 leading-relaxed">{resultDriver.description}</div>
+                    <div className="text-sm uppercase font-bold text-f1-red tracking-widest f1-font">Driver Profile</div>
+                    <div className="text-xl md:text-2xl text-white/90 leading-relaxed">{resultDriver.description}</div>
                   </div>
                 </div>
 

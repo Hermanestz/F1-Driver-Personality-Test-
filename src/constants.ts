@@ -35,7 +35,7 @@ const DRIVER_PHOTOS: Record<string, string> = {
   'Fernando Alonso': '/images/drivers/2026astonmartinferalo01right.webp',
   'Lance Stroll': '/images/drivers/2026astonmartinlanstr01right.webp',
   'Pierre Gasly': '/images/drivers/2026alpinepiegas01right.webp',
-  'Jack Doohan': '/images/drivers/2026alpinefracol01right.webp',
+  
   'Alexander Albon': '/images/drivers/2026williamsalealb01right.webp',
   'Carlos Sainz': '/images/drivers/2026williamscarsai01right.webp',
   'Yuki Tsunoda': '/images/drivers/2026racingbullsarvlin01right.webp',
@@ -45,7 +45,7 @@ const DRIVER_PHOTOS: Record<string, string> = {
   'Esteban Ocon': '/images/drivers/2026haasf1teamestoco01right.webp',
   'Oliver Bearman': '/images/drivers/2026haasf1teamolibea01right.webp',
   'Valtteri Bottas': '/images/drivers/2026cadillacvalbot01right.webp',
-  'Franco Colapinto': '/images/drivers/2026cadillacserper01right.webp',
+  'Franco Colapinto': '/images/drivers/2026alpinefracol01right.webp',
 };
 
 import { Driver, Question } from './types';
@@ -206,18 +206,18 @@ export const DRIVERS: Driver[] = [
     profile: { aggression: 7, calculation: 7, teamwork: 7, adaptability: 7, charisma: 7 }
   },
   {
-    name: 'Jack Doohan',
-    chinese: '杰克·杜汉',
+    name: 'Franco Colapinto',
+    chinese: '佛朗哥·科拉平托',
     team: 'BWT Alpine F1 Team',
-    abbrev: 'DOO',
-    number: '7',
-    flag: '🇦🇺',
+    abbrev: 'COL',
+    number: '43',
+    flag: '🇦🇷',
     teamColor: '#00CBFF',
     teamLogo: IMAGES.logo10,
-    photo: DRIVER_PHOTOS['Jack Doohan'],
+    photo: '/images/drivers/2026alpinefracol01right.webp',
     carImage: IMAGES.img11,
-    description: '作为新生代车手，驾驶风格充满年轻冲劲，潜力无限。他性格专注认真，极度渴望在F1赛场上证明自己的实力。',
-    profile: { aggression: 6, calculation: 7, teamwork: 8, adaptability: 6, charisma: 5 }
+    description: '驾驶风格大胆进攻，极具攻击性。性格年轻气盛，充满阿根廷人的热血与野性难驯的特质，在赛道上极具观赏性。',
+    profile: { aggression: 9, calculation: 5, teamwork: 6, adaptability: 7, charisma: 9 }
   },
   {
     name: 'Alexander Albon',
@@ -345,21 +345,7 @@ teamLogo: IMAGES.logo20,
     description: '驾驶风格全面均衡，极其稳定。性格展现出典型的"芬兰冰人"特质，沉默寡言但专业严谨，是车队最可靠的得分机器。',
     profile: { aggression: 5, calculation: 7, teamwork: 10, adaptability: 7, charisma: 8 }
   },
-  {
-    name: 'Franco Colapinto',
-    chinese: '佛朗哥·科拉平托',
-    team: 'Cadillac F1 Team',
-    abbrev: 'COL',
-    number: '43',
-    flag: '🇦🇷',
-    teamColor: '#FFFFFF',
-    teamLogo: IMAGES.logo20,
-    photo: DRIVER_PHOTOS['Franco Colapinto'],
-    carImage: IMAGES.img21,
-    description: '驾驶风格大胆进攻，极具攻击性。性格年轻气盛，充满阿根廷人的热血与野性难驯的特质，在赛道上极具观赏性。',
-    profile: { aggression: 9, calculation: 5, teamwork: 6, adaptability: 7, charisma: 9 }
-  }
-];
+  ];
 
 export const QUESTIONS: Question[] = [
   {
