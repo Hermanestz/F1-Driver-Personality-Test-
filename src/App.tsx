@@ -221,7 +221,7 @@ export default function App() {
               </div>
               
               <div className="space-y-4">
-                <h1 className="text-3xl md:text-4xl font-black italic tracking-tighter leading-tight text-center">
+                <h1 className="text-2xl md:text-3xl font-black italic tracking-tighter leading-tight text-center">
                   F1 Driver <br />
                   <span className="text-f1-red">Personality</span> Test
                 </h1>
