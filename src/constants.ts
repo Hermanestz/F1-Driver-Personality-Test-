@@ -23,6 +23,31 @@ const IMAGES = {
   img21: '/images/cars/2026cadillaccarright.webp',
 };
 
+const DRIVER_PHOTOS: Record<string, string> = {
+  'Max Verstappen': '/images/drivers/2026redbullracingmaxver01right.webp',
+  'Liam Lawson': '/images/drivers/2026redbullracingisahad01right.webp',
+  'Lewis Hamilton': '/images/drivers/2026ferrarilewham01right.webp',
+  'Charles Leclerc': '/images/drivers/2026ferrarichalec01right.webp',
+  'Lando Norris': '/images/drivers/2026mclarenlannor01right.webp',
+  'Oscar Piastri': '/images/drivers/2026mclarenoscpia01right.webp',
+  'George Russell': '/images/drivers/2026mercedesgeorus01right.webp',
+  'Kimi Antonelli': '/images/drivers/2026mercedesandant01right.webp',
+  'Fernando Alonso': '/images/drivers/2026astonmartinferalo01right.webp',
+  'Lance Stroll': '/images/drivers/2026astonmartinlanstr01right.webp',
+  'Pierre Gasly': '/images/drivers/2026alpinepiegas01right.webp',
+  'Jack Doohan': '/images/drivers/2026alpinefracol01right.webp',
+  'Alexander Albon': '/images/drivers/2026williamsalealb01right.webp',
+  'Carlos Sainz': '/images/drivers/2026williamscarsai01right.webp',
+  'Yuki Tsunoda': '/images/drivers/2026racingbullsarvlin01right.webp',
+  'Isack Hadjar': '/images/drivers/2026racingbullslialaw01right.webp',
+  'Nico Hulkenberg': '/images/drivers/2026audinichul01right.webp',
+  'Gabriel Bortoleto': '/images/drivers/2026audigabbor01right.webp',
+  'Esteban Ocon': '/images/drivers/2026haasf1teamestoco01right.webp',
+  'Oliver Bearman': '/images/drivers/2026haasf1teamolibea01right.webp',
+  'Valtteri Bottas': '/images/drivers/2026cadillacvalbot01right.webp',
+  'Franco Colapinto': '/images/drivers/2026cadillacserper01right.webp',
+};
+
 import { Driver, Question } from './types';
 
 export const DRIVERS: Driver[] = [
@@ -35,7 +60,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇳🇱',
     teamColor: '#3671C6',
     teamLogo: IMAGES.logo0,
-    photo: '',
+    photo: DRIVER_PHOTOS['Max Verstappen'],
     carImage: IMAGES.img1,
     description: '以极致的进攻型驾驶和精准的赛车控制著称。他性格冷静沉默，在赛道上追求完美，具有极度的竞争欲望和永不妥协的求胜心。',
     profile: { aggression: 10, calculation: 8, teamwork: 4, adaptability: 9, charisma: 6 }
@@ -49,7 +74,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇳🇿',
     teamColor: '#3671C6',
     teamLogo: IMAGES.logo0,
-    photo: '',
+    photo: DRIVER_PHOTOS['Liam Lawson'],
     carImage: IMAGES.img1,
     description: '驾驶风格激进大胆，充满攻击性。作为新西兰的年轻小将，他展现出了硬核暴力的驾驶特点和永不言败的坚韧性格。',
     profile: { aggression: 8, calculation: 6, teamwork: 6, adaptability: 7, charisma: 5 }
@@ -63,7 +88,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇬🇧',
     teamColor: '#E80020',
     teamLogo: IMAGES.logo2,
-    photo: '',
+    photo: DRIVER_PHOTOS['Lewis Hamilton'],
     carImage: IMAGES.img3,
     description: '拥有七届世界冠军的辉煌履历，驾驶风格优雅细腻且极具技术性。赛场外他是时尚先锋与社会活动家，性格优雅大气，充满领袖魅力。',
     profile: { aggression: 8, calculation: 9, teamwork: 8, adaptability: 10, charisma: 10 }
@@ -77,7 +102,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇲🇨',
     teamColor: '#E80020',
     teamLogo: IMAGES.logo2,
-    photo: '',
+    photo: DRIVER_PHOTOS['Charles Leclerc'],
     carImage: IMAGES.img3,
     description: '驾驶风格充满激情与血性，单圈速度极快。他性格热情奔放，带有独特的艺术气质，对法拉利车队有着深厚的家乡情怀。',
     profile: { aggression: 9, calculation: 6, teamwork: 7, adaptability: 8, charisma: 8 }
@@ -91,7 +116,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇬🇧',
     teamColor: '#FF8000',
     teamLogo: IMAGES.logo4,
-    photo: '',
+    photo: DRIVER_PHOTOS['Lando Norris'],
     carImage: IMAGES.img5,
     description: '驾驶风格灵活多变，极具攻击性。性格幽默坦诚、直率真实，是围场内备受欢迎的社交达人，深受车迷喜爱。',
     profile: { aggression: 7, calculation: 7, teamwork: 8, adaptability: 8, charisma: 9 }
@@ -105,7 +130,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇦🇺',
     teamColor: '#FF8000',
     teamLogo: IMAGES.logo4,
-    photo: '',
+    photo: DRIVER_PHOTOS['Oscar Piastri'],
     carImage: IMAGES.img5,
     description: '以精确细腻和极其稳定的驾驶风格见长。虽然是年轻车手，但性格内敛低调、专注谦虚，往往能在沉默中爆发惊人实力。',
     profile: { aggression: 6, calculation: 9, teamwork: 9, adaptability: 8, charisma: 4 }
@@ -119,7 +144,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇬🇧',
     teamColor: '#27F4D2',
     teamLogo: IMAGES.logo6,
-    photo: '',
+    photo: DRIVER_PHOTOS['George Russell'],
     carImage: IMAGES.img7,
     description: '全能型车手，驾驶风格激进且善于进攻。他性格严谨认真，雄心勃勃，对总冠军有着强烈的渴望，展现出卓越的领导力。',
     profile: { aggression: 7, calculation: 9, teamwork: 7, adaptability: 8, charisma: 7 }
@@ -133,7 +158,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇮🇹',
     teamColor: '#27F4D2',
     teamLogo: IMAGES.logo6,
-    photo: '',
+    photo: DRIVER_PHOTOS['Kimi Antonelli'],
     carImage: IMAGES.img7,
     description: '梅赛德斯青训的超级新星，驾驶风格大胆激进。虽然性格内敛害羞，但一上赛道便展现出年轻人的冲劲与专注认真的态度。',
     profile: { aggression: 8, calculation: 6, teamwork: 7, adaptability: 7, charisma: 5 }
@@ -147,7 +172,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇪🇸',
     teamColor: '#229971',
     teamLogo: IMAGES.logo8,
-    photo: '',
+    photo: DRIVER_PHOTOS['Fernando Alonso'],
     carImage: IMAGES.img9,
     description: '拥有极其丰富的比赛经验，驾驶风格充满智慧与老道策略。他是一位执着坚毅的智者，永不放弃的斗士精神令人敬佩。',
     profile: { aggression: 9, calculation: 10, teamwork: 5, adaptability: 9, charisma: 8 }
@@ -161,7 +186,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇨🇦',
     teamColor: '#229971',
     teamLogo: IMAGES.logo8,
-    photo: '',
+    photo: DRIVER_PHOTOS['Lance Stroll'],
     carImage: IMAGES.img9,
     description: '驾驶风格稳健，擅长防守反击和雨战。性格低调安静，在家族的支持下依然保持勤奋努力，不断提升自己的比赛节奏。',
     profile: { aggression: 7, calculation: 5, teamwork: 6, adaptability: 5, charisma: 4 }
@@ -175,7 +200,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇫🇷',
     teamColor: '#00CBFF',
     teamLogo: IMAGES.logo10,
-    photo: '',
+    photo: DRIVER_PHOTOS['Pierre Gasly'],
     carImage: IMAGES.img11,
     description: '驾驶风格激进灵活，极具攻击性。性格热情开朗，充满法国人的浪漫气质，在经历了职业生涯的起伏后依然不断追求突破。',
     profile: { aggression: 7, calculation: 7, teamwork: 7, adaptability: 7, charisma: 7 }
@@ -189,7 +214,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇦🇺',
     teamColor: '#00CBFF',
     teamLogo: IMAGES.logo10,
-    photo: '',
+    photo: DRIVER_PHOTOS['Jack Doohan'],
     carImage: IMAGES.img11,
     description: '作为新生代车手，驾驶风格充满年轻冲劲，潜力无限。他性格专注认真，极度渴望在F1赛场上证明自己的实力。',
     profile: { aggression: 6, calculation: 7, teamwork: 8, adaptability: 6, charisma: 5 }
@@ -203,7 +228,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇹🇭',
     teamColor: '#64CCFE',
     teamLogo: IMAGES.logo12,
-    photo: '',
+    photo: DRIVER_PHOTOS['Alexander Albon'],
     carImage: IMAGES.img13,
     description: '驾驶风格激进灵活，同时具备出色的保胎能力。性格友善健谈、乐观积极，重情重义，是车队中不可或缺的核心力量。',
     profile: { aggression: 6, calculation: 8, teamwork: 9, adaptability: 8, charisma: 8 }
@@ -216,10 +241,10 @@ export const DRIVERS: Driver[] = [
     number: '55',
     flag: '🇪🇸',
     teamColor: '#64CCFE',
-    teamLogo: IMAGES.logo12,
-    photo: '',
+teamLogo: IMAGES.logo12,
+    photo: DRIVER_PHOTOS['Carlos Sainz'],
     carImage: IMAGES.img13,
-    description: '被誉为“平顺操作员”，驾驶风格全面均衡且极其稳定。性格务实可靠，适应力极强，具备出色的团队精神和战术头脑。',
+    description: '被誉为"平顺操作员"，驾驶风格全面均衡且极其稳定。性格务实可靠，适应力极强具备出色的团队精神和战术头脑。',
     profile: { aggression: 7, calculation: 10, teamwork: 8, adaptability: 8, charisma: 7 }
   },
   {
@@ -231,7 +256,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇯🇵',
     teamColor: '#6692FF',
     teamLogo: IMAGES.logo14,
-    photo: '',
+    photo: DRIVER_PHOTOS['Yuki Tsunoda'],
     carImage: IMAGES.img15,
     description: '驾驶风格充满激情与血性，以极晚的刹车和攻击性著称。性格直率真实，虽然有时情绪化，但始终在不断进步与成长。',
     profile: { aggression: 9, calculation: 5, teamwork: 6, adaptability: 7, charisma: 8 }
@@ -245,7 +270,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇫🇷',
     teamColor: '#6692FF',
     teamLogo: IMAGES.logo14,
-    photo: '',
+    photo: DRIVER_PHOTOS['Isack Hadjar'],
     carImage: IMAGES.img15,
     description: '红牛青训的杰出代表，驾驶风格大胆激进，充满年轻冲劲。他性格专注认真，极度渴望在顶级赛事中证明自己的价值。',
     profile: { aggression: 8, calculation: 6, teamwork: 6, adaptability: 6, charisma: 5 }
@@ -259,7 +284,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇩🇪',
     teamColor: '#F5002D',
     teamLogo: IMAGES.logo16,
-    photo: '',
+    photo: DRIVER_PHOTOS['Nico Hulkenberg'],
     carImage: IMAGES.img17,
     description: '经验丰富的德国老将，驾驶风格稳定且经验老道。性格展现出德国硬汉的特质，耐力强劲，总能在中游集团中稳定输出。',
     profile: { aggression: 7, calculation: 8, teamwork: 8, adaptability: 8, charisma: 7 }
@@ -273,7 +298,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇧🇷',
     teamColor: '#F5002D',
     teamLogo: IMAGES.logo16,
-    photo: '',
+    photo: DRIVER_PHOTOS['Gabriel Bortoleto'],
     carImage: IMAGES.img17,
     description: '来自巴西的超级新星，驾驶风格极具攻击性。他身上充满巴西人的活力与新秀的冲劲，展现出不可估量的未来潜力。',
     profile: { aggression: 7, calculation: 7, teamwork: 7, adaptability: 7, charisma: 6 }
@@ -287,7 +312,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇫🇷',
     teamColor: '#B6BABD',
     teamLogo: IMAGES.logo18,
-    photo: '',
+    photo: DRIVER_PHOTOS['Esteban Ocon'],
     carImage: IMAGES.img19,
     description: '驾驶风格稳健，以强悍的防守著称。性格成熟稳重，是一位典型的法国硬汉，在赛道上始终坚持团队优先的原则。',
     profile: { aggression: 9, calculation: 6, teamwork: 3, adaptability: 7, charisma: 6 }
@@ -301,7 +326,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇬🇧',
     teamColor: '#B6BABD',
     teamLogo: IMAGES.logo18,
-    photo: '',
+    photo: DRIVER_PHOTOS['Oliver Bearman'],
     carImage: IMAGES.img19,
     description: '法拉利青训的璀璨新星，驾驶风格极具攻击性且潜力无限。性格年轻自信，充满英国新星的冲劲，敢于在赛场上挑战极限。',
     profile: { aggression: 7, calculation: 7, teamwork: 8, adaptability: 7, charisma: 6 }
@@ -314,10 +339,10 @@ export const DRIVERS: Driver[] = [
     number: '77',
     flag: '🇫🇮',
     teamColor: '#FFFFFF',
-    teamLogo: IMAGES.logo20,
-    photo: '',
+teamLogo: IMAGES.logo20,
+    photo: DRIVER_PHOTOS['Valtteri Bottas'],
     carImage: IMAGES.img21,
-    description: '驾驶风格全面均衡，极其稳定。性格展现出典型的“芬兰冰人”特质，沉默寡言但专业严谨，是车队最可靠的得分机器。',
+    description: '驾驶风格全面均衡，极其稳定。性格展现出典型的"芬兰冰人"特质，沉默寡言但专业严谨，是车队最可靠的得分机器。',
     profile: { aggression: 5, calculation: 7, teamwork: 10, adaptability: 7, charisma: 8 }
   },
   {
@@ -329,7 +354,7 @@ export const DRIVERS: Driver[] = [
     flag: '🇦🇷',
     teamColor: '#FFFFFF',
     teamLogo: IMAGES.logo20,
-    photo: '',
+    photo: DRIVER_PHOTOS['Franco Colapinto'],
     carImage: IMAGES.img21,
     description: '驾驶风格大胆进攻，极具攻击性。性格年轻气盛，充满阿根廷人的热血与野性难驯的特质，在赛道上极具观赏性。',
     profile: { aggression: 9, calculation: 5, teamwork: 6, adaptability: 7, charisma: 9 }

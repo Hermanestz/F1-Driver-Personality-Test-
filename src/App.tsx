@@ -116,6 +116,8 @@ export default function App() {
   const [resultDriver, setResultDriver] = useState<Driver | null>(null);
   const [matchPercent, setMatchPercent] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [soundBars] = useState(() => Array.from({ length: 16 }, () => 20 + Math.random() * 80));
   const startTimeRef = useRef<number>(0);
 
   const startTest = () => {
@@ -182,7 +184,11 @@ export default function App() {
     setTotalTime(elapsed);
     setResultDriver(bestMatch);
     setMatchPercent(match);
-    setGameState('result');
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setGameState('result');
+    }, 2500);
   };
 
   const formatLapTime = (ms: number) => {
@@ -215,7 +221,7 @@ export default function App() {
               </div>
               
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-6xl font-black italic tracking-tighter leading-none">
+                <h1 className="text-3xl md:text-4xl font-black italic tracking-tighter leading-tight text-center">
                   F1 Driver <br />
                   <span className="text-f1-red">Personality</span> Test
                 </h1>
@@ -255,7 +261,30 @@ export default function App() {
                 <LapTimer isActive={gameState === 'test'} reset={currentQuestion === 0} />
               </div>
 
-              <F1ProgressBar progress={((currentQuestion) / QUESTIONS.length) * 100} />
+              <div className="flex items-end justify-center gap-1 h-16">
+                {soundBars.map((height, i) => {
+                  const totalBars = soundBars.length;
+                  const centerIndex = totalBars / 2;
+                  const distanceFromCenter = Math.abs(i - centerIndex);
+                  const opacity = 1 - (distanceFromCenter / centerIndex) * 0.75;
+                  
+                  return (
+                    <motion.div
+                      key={i}
+                      className="w-8 rounded-none"
+                      style={{ backgroundColor: `rgba(255, 24, 1, ${opacity})` }}
+                      animate={{
+                        height: [`${height}%`, `${height * 0.5}%`, `${height * 0.8}%`, `${height * 0.3}%`, `${height}%`]
+                      }}
+                      transition={{
+                        duration: 0.5 + i * 0.05,
+                        repeat: Infinity,
+                        ease: 'easeInOut'
+                      }}
+                    />
+                  );
+                })}
+              </div>
 
               <div className="space-y-8">
                 <AnimatePresence mode="wait">
@@ -267,20 +296,28 @@ export default function App() {
                       exit={{ opacity: 0, x: -20 }}
                       className="space-y-6"
                     >
-                      <h2 className="text-2xl font-bold leading-tight f1-font">
+                      <motion.h2 
+                        className="text-2xl font-bold leading-tight chinese-text"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0 }}
+                      >
                         {QUESTIONS[currentQuestion].text}
-                      </h2>
+                      </motion.h2>
 
                       <div className="grid gap-3">
                         {QUESTIONS[currentQuestion].options.map((option, idx) => (
                           <motion.button
                             key={idx}
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
                             whileHover={{ x: 10, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
                             whileTap={{ scale: 0.98 }}
                             onClick={() => selectOption(idx)}
-                            className="w-full text-left p-5 rounded-lg bg-f1-card border border-f1-border hover:border-f1-red transition-colors flex items-center justify-between group"
+                            transition={{ delay: 0.1 + idx * 0.1 }}
+                            className="w-full text-left p-5 rounded-none bg-f1-card border border-f1-border hover:border-f1-red transition-colors flex items-center justify-between group flex-row-reverse"
                           >
-                            <span className="text-lg font-medium text-white/80 group-hover:text-white transition-colors">
+                            <span className="text-xl font-medium text-white/80 group-hover:text-white transition-colors chinese-text text-right">
                               {option.text}
                             </span>
                             <ChevronRight size={18} className="text-f1-gray group-hover:text-f1-red transition-colors" />
@@ -295,6 +332,66 @@ export default function App() {
                   )}
                 </AnimatePresence>
               </div>
+            </motion.div>
+          )}
+
+          {isLoading && resultDriver && (
+            <motion.div 
+              key="loading"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-f1-black flex items-center justify-center overflow-hidden"
+            >
+              <div className="relative w-full h-48 flex items-center">
+                <motion.div
+                  initial={{ x: '-120%' }}
+                  animate={{ x: '120%' }}
+                  transition={{ duration: 2.5, ease: 'linear' }}
+                  className="relative"
+                >
+                  <img 
+                    src={resultDriver.carImage} 
+                    alt="F1 Car"
+                    className="h-32 md:h-48 object-contain"
+                    style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.5))' }}
+                  />
+                  {[...Array(6)].map((_, i) => (
+                    <motion.div 
+                      key={i}
+                      className="absolute top-1/2 rounded-full"
+                      style={{
+                        right: '-20px',
+                        width: `${8 + i * 6}px`,
+                        height: `${2 + i * 1.5}px`,
+                        y: '-50%',
+                        background: `linear-gradient(to right, rgba(255,255,255,${0.6 - i * 0.08}), transparent)`
+                      }}
+                      animate={{ 
+                        x: [0, 80 + i * 30],
+                        opacity: [0.8, 0],
+                        y: ['-50%', `${-30 + i * 12}%`]
+                      }}
+                      transition={{ 
+                        duration: 0.4 + i * 0.1, 
+                        repeat: Infinity, 
+                        repeatDelay: 0.15 - i * 0.02,
+                        ease: 'easeOut'
+                      }}
+                    />
+                  ))}
+                </motion.div>
+              </div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="absolute bottom-32 text-center"
+              >
+                <div className="text-2xl md:text-3xl font-black italic f1-font text-white">
+                  CALCULATING RESULT
+                </div>
+              </motion.div>
             </motion.div>
           )}
 
@@ -318,64 +415,58 @@ export default function App() {
                   className="h-full object-contain"
                   style={{ height: '2.5rem' }}
                 />
-                <div className="text-xl md:text-2xl font-black f1-font font-mono text-purple-500">
+                <div className="text-xl md:text-2xl font-bold f1-font font-mono text-purple-500">
                   {formatLapTime(totalTime)}
                 </div>
               </motion.div>
 
               {/* Official F1 Driver Card Layout - 2026 Edition */}
               <div 
-                className="relative overflow-hidden rounded-tr-[40px] rounded-bl-[40px] shadow-2xl flex flex-col lg:flex-row bg-f1-card border-l-[12px]"
-                style={{ borderLeftColor: resultDriver.teamColor }}
+                className="relative overflow-hidden rounded-tr-[40px] rounded-bl-[40px] shadow-2xl bg-f1-card border-l-[12px]"
+                style={{ 
+                  borderLeftColor: resultDriver.teamColor,
+                  aspectRatio: '16/9',
+                  maxHeight: '60vh'
+                }}
               >
                 {/* Background Pattern Overlay */}
                 <div className="absolute inset-0 opacity-20 pointer-events-none" 
                      style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
                 
-                {/* Left Content: Info */}
-                <div className="relative z-10 p-8 md:p-12 flex flex-col justify-between flex-1 text-left order-2 lg:order-1">
-                  <div className="space-y-8">
-                    <div className="flex justify-between items-start">
-                      <div className="space-y-1">
-                        <motion.div 
-                          initial={{ x: -20, opacity: 0 }}
-                          animate={{ x: 0, opacity: 1 }}
-                          transition={{ delay: 0.8 }}
-                          className="text-2xl font-medium text-white/80 f1-font leading-tight"
-                        >
-                          {resultDriver.name.split(' ')[0]}
-                        </motion.div>
-                        <motion.div 
-                          initial={{ x: -20, opacity: 0 }}
-                          animate={{ x: 0, opacity: 1 }}
-                          transition={{ delay: 0.9 }}
-                          className="text-4xl sm:text-5xl md:text-6xl font-black italic text-white f1-font leading-none"
-                        >
-                          {resultDriver.name.split(' ').slice(1).join(' ')}
-                        </motion.div>
+                {/* Left Content: Info - 50% width */}
+                <div className="absolute left-0 top-0 bottom-0 w-[50%] z-10 p-4 sm:p-6 md:p-8 flex flex-col justify-between">
+                  <div className="space-y-1 sm:space-y-2">
+                    <motion.div 
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.8 }}
+                      className="space-y-0.5"
+                    >
+                      <div className="text-sm sm:text-lg md:text-xl font-medium text-white/80 f1-font leading-tight">
+                        {resultDriver.name.split(' ')[0]}
                       </div>
-                      
-                      <motion.div 
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ delay: 1.1 }}
-                        className="text-6xl sm:text-7xl md:text-8xl font-black italic f1-font select-none leading-none ml-4"
-                        style={{ WebkitTextStroke: `2px ${resultDriver.teamColor}`, color: 'transparent' }}
-                      >
+                      <div className="text-xl sm:text-2xl md:text-3xl font-black text-white f1-font leading-none">
+                        {resultDriver.name.split(' ').slice(1).join(' ')}
+                      </div>
+                    </motion.div>
+
+                    <motion.div 
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.9 }}
+                    >
+                      <div className="text-[2.5rem] sm:text-[4rem] md:text-[5rem] font-black text-white/10 f1-font select-none leading-none">
                         {resultDriver.number}
-                      </motion.div>
-                    </div>
+                      </div>
+                    </motion.div>
 
                     <motion.div 
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 1.0 }}
-                      className="flex items-center gap-3"
+                      className="text-xs sm:text-sm md:text-base font-bold text-white/80 f1-font uppercase tracking-wider"
                     >
-                      <div className="w-1 h-8 shrink-0" style={{ backgroundColor: resultDriver.teamColor }} />
-                      <div className="text-base sm:text-lg font-bold text-white/80 f1-font uppercase tracking-wider">
-                        {resultDriver.team}
-                      </div>
+                      {resultDriver.team}
                     </motion.div>
                   </div>
 
@@ -383,56 +474,39 @@ export default function App() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 1.2 }}
-                    className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-8"
+                    className="w-12 h-12 sm:w-16 sm:w-20 flex items-center justify-center p-1 bg-white/5 rounded-lg border border-white/10"
                   >
-                    <div className="w-24 h-16 flex items-center justify-center p-2 bg-white/5 rounded-lg border border-white/10 shrink-0">
-                      <img 
-                        src={resultDriver.teamLogo} 
-                        alt={resultDriver.team}
-                        className="h-full object-contain drop-shadow-md"
-                        referrerPolicy="no-referrer"
-                      />
-                    </div>
-                    <div className="bg-white/10 text-white px-6 py-3 rounded-full shadow-lg border border-white/20 backdrop-blur-sm">
-                      <span className="text-sm font-bold uppercase tracking-widest f1-font">{matchPercent}% Match</span>
-                    </div>
+                    <img 
+                      src={resultDriver.teamLogo} 
+                      alt={resultDriver.team}
+                      className="h-full object-contain drop-shadow-md"
+                      referrerPolicy="no-referrer"
+                    />
                   </motion.div>
                 </div>
 
-                {/* Right Content: Car Image */}
-                <div className="relative flex-1 flex items-center justify-center lg:justify-end overflow-hidden p-8 lg:p-4 bg-gradient-to-br from-transparent to-black/40 min-h-[250px] sm:min-h-[350px] lg:min-h-[500px] order-1 lg:order-2">
-                  {/* Team Color Glow Behind Car */}
+                {/* Right Content: Driver Photo - 50% width */}
+                <div className="absolute right-0 top-0 bottom-0 w-[50%] overflow-hidden">
                   <motion.div 
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 0.2, scale: 1 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.6, duration: 0.8 }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 blur-[60px] md:blur-[80px] rounded-full pointer-events-none"
-                    style={{ backgroundColor: resultDriver.teamColor }}
-                  />
-
-                  <motion.img 
-                    initial={{ x: '150%', skewX: -15 }}
-                    animate={{ x: 0, skewX: 0 }}
-                    transition={{ 
-                      duration: 0.8, 
-                      ease: [0.2, 0.8, 0.2, 1],
-                      delay: 0.2 
+                    className="absolute inset-0 pointer-events-none"
+                    style={{ 
+                      background: `linear-gradient(to right, transparent 20%, rgba(21,21,30,0.7) 60%, ${resultDriver.teamColor}30 100%)`
                     }}
-                    src={resultDriver.carImage} 
-                    alt={`${resultDriver.team} Car`}
-                    className="w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[650px] object-contain relative z-10 drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] scale-110 lg:scale-125 lg:translate-x-12 origin-bottom"
-                    referrerPolicy="no-referrer"
                   />
-                  
-                  {/* Large Abbrev in BG */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.8, duration: 0.6 }}
-                    className="absolute top-1/2 right-0 -translate-y-1/2 text-[100px] sm:text-[150px] lg:text-[250px] font-black italic text-white/[0.03] pointer-events-none f1-font select-none leading-none overflow-hidden"
-                  >
-                    {resultDriver.abbrev}
-                  </motion.div>
+                  {resultDriver.photo && (
+                    <motion.img 
+                      initial={{ x: '10%', opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.5, duration: 0.8 }}
+                      src={resultDriver.photo} 
+                      alt={resultDriver.name}
+                      className="absolute inset-0 w-full h-full object-cover object-top"
+                      referrerPolicy="no-referrer"
+                    />
+                  )}
                 </div>
               </div>
 
@@ -450,15 +524,17 @@ export default function App() {
                   </div>
                 </div>
 
+                <div className="flex justify-center">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setGameState('welcome')}
-                  className="inline-flex items-center gap-3 bg-white text-f1-black px-8 py-4 rounded-sm font-black uppercase tracking-widest text-sm f1-font hover:bg-f1-red hover:text-white transition-all shadow-xl"
+                  className="inline-flex items-center gap-3 bg-white text-f1-black px-8 py-4 rounded-sm font-bold uppercase tracking-widest text-sm f1-font hover:bg-f1-red hover:text-white transition-all shadow-xl"
                 >
                   <RotateCcw size={20} />
                   <span>Restart Session</span>
                 </motion.button>
+              </div>
               </motion.div>
             </motion.div>
           )}

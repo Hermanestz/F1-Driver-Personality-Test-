@@ -3,6 +3,7 @@
 @theme {
   --font-f1: "Formula1", "Inter", sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
+  --font-chinese: "YouSheBiaoTiHei-2", "Inter", sans-serif;
   --color-f1-red: #e10600;
   --color-f1-black: #15151e;
   --color-f1-card: #1f1f27;
@@ -31,11 +32,21 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'YouSheBiaoTiHei-2';
+  src: url('../Font/YouSheBiaoTiHei-2.ttf') format('truetype');
+}
+
 body {
   background-color: var(--color-f1-black);
   color: white;
-  font-family: var(--font-body);
+  font-family: var(--font-chinese), var(--font-body);
   -webkit-font-smoothing: antialiased;
+}
+
+.chinese-text {
+  font-family: var(--font-chinese);
+  font-size: 2em;
 }
 
 h1, h2, h3, .f1-font {
