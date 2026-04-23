@@ -104,7 +104,15 @@ const initialProfile: DriverProfile = {
   calculation: 0,
   teamwork: 0,
   adaptability: 0,
-  charisma: 0
+  charisma: 0,
+  humor: 0,
+  extraversion: 0,
+  intuition: 0,
+  focus: 0,
+  emotionalStability: 0,
+  confidence: 0,
+  emotion: 0,
+  leadership: 0
 };
 
 // --- Main App ---
@@ -153,6 +161,14 @@ export default function App() {
       teamwork: Math.max(1, Math.min(10, Math.round(finalProfile.teamwork * 0.5) + 5)),
       adaptability: Math.max(1, Math.min(10, Math.round(finalProfile.adaptability * 0.5) + 5)),
       charisma: Math.max(1, Math.min(10, Math.round(finalProfile.charisma * 0.5) + 5)),
+      humor: Math.max(1, Math.min(10, Math.round(finalProfile.humor * 0.5) + 5)),
+      extraversion: Math.max(1, Math.min(10, Math.round(finalProfile.extraversion * 0.5) + 5)),
+      intuition: Math.max(1, Math.min(10, Math.round(finalProfile.intuition * 0.5) + 5)),
+      focus: Math.max(1, Math.min(10, Math.round(finalProfile.focus * 0.5) + 5)),
+      emotionalStability: Math.max(1, Math.min(10, Math.round(finalProfile.emotionalStability * 0.5) + 5)),
+      confidence: Math.max(1, Math.min(10, Math.round(finalProfile.confidence * 0.5) + 5)),
+      emotion: Math.max(1, Math.min(10, Math.round(finalProfile.emotion * 0.5) + 5)),
+      leadership: Math.max(1, Math.min(10, Math.round(finalProfile.leadership * 0.5) + 5)),
     };
 
     const calculateDistance = (p1: DriverProfile, p2: DriverProfile) => {
@@ -161,7 +177,15 @@ export default function App() {
         Math.pow(p1.calculation - p2.calculation, 2) +
         Math.pow(p1.teamwork - p2.teamwork, 2) +
         Math.pow(p1.adaptability - p2.adaptability, 2) +
-        Math.pow(p1.charisma - p2.charisma, 2)
+        Math.pow(p1.charisma - p2.charisma, 2) +
+        Math.pow(p1.humor - p2.humor, 2) +
+        Math.pow(p1.extraversion - p2.extraversion, 2) +
+        Math.pow(p1.intuition - p2.intuition, 2) +
+        Math.pow(p1.focus - p2.focus, 2) +
+        Math.pow(p1.emotionalStability - p2.emotionalStability, 2) +
+        Math.pow(p1.confidence - p2.confidence, 2) +
+        Math.pow(p1.emotion - p2.emotion, 2) +
+        Math.pow(p1.leadership - p2.leadership, 2)
       );
     };
 

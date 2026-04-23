@@ -4,6 +4,14 @@ export interface DriverProfile {
   teamwork: number;
   adaptability: number;
   charisma: number;
+  humor: number;
+  extraversion: number;
+  intuition: number;
+  focus: number;
+  emotionalStability: number;
+  confidence: number;
+  emotion: number;
+  leadership: number;
 }
 
 export interface Driver {
