@@ -224,7 +224,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-f1-black text-white selection:bg-f1-red/30">
-      <div className="mx-auto px-4 py-8 min-h-screen flex flex-col justify-center transition-all duration-500 w-full">
+      <div className="app-shell mx-auto px-4 sm:px-6 py-6 sm:py-8 min-h-screen flex flex-col justify-center transition-all duration-500 w-full">
         
         <AnimatePresence mode="wait">
           {gameState === 'welcome' && (
@@ -245,11 +245,11 @@ export default function App() {
               </div>
               
               <div className="space-y-4">
-                <h1 className="text-2xl md:text-3xl font-black italic tracking-tighter leading-tight text-center">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-black italic tracking-tighter leading-tight text-center">
                   F1 Driver <br />
                   <span className="text-f1-red">Personality</span> Test
                 </h1>
-                <p className="text-f1-gray text-xl max-w-md mx-auto">
+                <p className="text-f1-gray text-base sm:text-lg md:text-xl max-w-md mx-auto">
                   找出与你最匹配的2026赛季F1车手
                 </p>
               </div>
@@ -291,7 +291,7 @@ export default function App() {
                   <div className="text-2xl font-black f1-font">RADIO</div>
                 </div>
               </div>
-              <div className="flex items-end justify-center gap-1 h-16">
+              <div className="flex items-end justify-center gap-1 h-14 sm:h-16">
                 {soundBars.map((height, i) => {
                   const totalBars = soundBars.length;
                   const centerIndex = totalBars / 2;
@@ -301,7 +301,7 @@ export default function App() {
                   return (
                     <motion.div
                       key={i}
-                      className="w-8 rounded-none"
+                      className="flex-1 max-w-6 rounded-none"
                       style={{ backgroundColor: `rgba(255, 24, 1, ${opacity})` }}
                       animate={{
                         height: [`${height}%`, `${height * 0.5}%`, `${height * 0.8}%`, `${height * 0.3}%`, `${height}%`]
@@ -327,7 +327,7 @@ export default function App() {
                       className="space-y-6"
                     >
                       <motion.h2 
-                        className="text-xs leading-tight chinese-text"
+                        className="text-sm sm:text-base leading-tight chinese-text"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0 }}
@@ -345,9 +345,9 @@ export default function App() {
                             whileTap={{ scale: 0.98 }}
                             onClick={() => selectOption(idx)}
                             transition={{ delay: 0.1 + idx * 0.1 }}
-                            className="w-full text-left p-5 rounded-none bg-f1-card border border-f1-border hover:border-f1-red transition-colors flex items-center justify-between group flex-row-reverse"
+                            className="w-full text-left p-4 sm:p-5 rounded-none bg-f1-card border border-f1-border hover:border-f1-red transition-colors flex items-center justify-between group flex-row-reverse"
                           >
-                            <span className="text-xs text-white/80 group-hover:text-white transition-colors chinese-text text-right">
+                            <span className="text-sm sm:text-base text-white/80 group-hover:text-white transition-colors chinese-text text-right">
                               {option.text}
                             </span>
                             <ChevronRight size={18} className="text-f1-gray group-hover:text-f1-red transition-colors" />
@@ -419,7 +419,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="absolute bottom-32 text-center"
+                className="absolute bottom-20 sm:bottom-32 text-center"
               >
                 <div className="text-2xl md:text-3xl font-black italic f1-font text-white">
                   CALCULATING RESULT
@@ -455,11 +455,9 @@ export default function App() {
 
               {/* Official F1 Driver Card Layout - 2026 Edition */}
               <div 
-                className="relative overflow-hidden shadow-2xl bg-f1-card border-l-[12px]"
+                className="result-card relative overflow-hidden shadow-2xl bg-f1-card border-l-[12px]"
                 style={{ 
-                  borderLeftColor: resultDriver.teamColor,
-                  aspectRatio: '16/9',
-                  maxHeight: '60vh'
+                  borderLeftColor: resultDriver.teamColor
                 }}
               >
                 {/* Background Pattern Overlay */}
@@ -467,7 +465,7 @@ export default function App() {
                      style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
                 
                 {/* Left Content: Info - 50% width */}
-                <div className="absolute left-0 top-0 bottom-0 w-[50%] z-10 p-4 sm:p-6 md:p-8 flex flex-col justify-between">
+                <div className="result-card__left absolute left-0 top-0 bottom-0 w-[50%] z-10 p-4 sm:p-6 md:p-8 flex flex-col justify-between">
                   <div className="space-y-1 sm:space-y-2">
                     <motion.div 
                       initial={{ x: -20, opacity: 0 }}
@@ -519,7 +517,7 @@ export default function App() {
                 </div>
 
                 {/* Right Content: Driver Photo - 50% width */}
-                <div className="absolute right-0 top-0 bottom-0 w-[50%] overflow-hidden">
+                <div className="result-card__right absolute right-0 top-0 bottom-0 w-[50%] overflow-hidden">
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
