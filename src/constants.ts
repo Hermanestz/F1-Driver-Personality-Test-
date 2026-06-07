@@ -362,138 +362,138 @@ teamLogo: IMAGES.logo20,
 
 export const QUESTIONS: Question[] = [
   {
-    text: '你的朋友临时放你鸽子，约定好的聚会只剩你一个人，你会：',
+    text: '工程师：前车刚进站，赛道前方空气干净。我们可以现在全力 push 争取 undercut，也可以继续保护轮胎延长这一 stint。你会怎么回？',
     options: [
-      { text: '非常生气，觉得被背叛了', scores: { aggression: 3, emotion: 2, emotionalStability: -1 } },
-      { text: '没关系，自己找点事做也很开心', scores: { adaptability: 2, emotionalStability: 2, humor: 1, confidence: 1 } },
-      { text: '马上找其他朋友出来玩', scores: { extraversion: 3, charisma: 2, teamwork: 1 } },
-      { text: '反思是不是自己做错了什么', scores: { emotion: 2, intuition: 1, confidence: -1, focus: 1 } }
+      { text: '“收到，把电池和节奏都给我，我现在就推。”', scores: { aggression: 3, confidence: 2, focus: 2 } },
+      { text: '“先告诉我轮胎差值和目标圈速，我要数据再决定。”', scores: { calculation: 3, focus: 2, emotionalStability: 1 } },
+      { text: '“如果你们认为 undercut 有机会，我配合，我们一起做。”', scores: { teamwork: 3, adaptability: 2, leadership: 1 } },
+      { text: '“先留在外面把这一段跑长，我更想保护轮胎。”', scores: { adaptability: 2, intuition: 2, emotionalStability: 2 } }
     ]
   },
   {
-    text: '工作中你有一个绝佳的创意，但同事觉得不可行，你会：',
+    text: '工程师：Turn 3 开始有零星雨点，但主直道还是干的。我们可以继续用 slick，也可以提前换 intermediates。你的回应是？',
     options: [
-      { text: '坚持自己的想法，用行动证明他们错了', scores: { confidence: 3, aggression: 2, intuition: 1, leadership: 1 } },
-      { text: '收集数据和分析，准备充分的说服材料', scores: { calculation: 3, focus: 3, teamwork: 1, emotionalStability: 1 } },
-      { text: '组织团队讨论，倾听各方意见', scores: { teamwork: 3, leadership: 2, extraversion: 1, charisma: 1 } },
-      { text: '先小规模尝试，用结果说话', scores: { adaptability: 3, intuition: 2, focus: 1, confidence: 1 } }
+      { text: '“赛道现在还行，先别叫我进站，我能掌控。”', scores: { confidence: 2, intuition: 2, aggression: 1 } },
+      { text: '“把前面那些换半雨胎车手的分段告诉我，再做决定。”', scores: { calculation: 3, focus: 2, teamwork: 1 } },
+      { text: '“如果 crossover 已经接近了，现在就 box，别等局面变乱。”', scores: { adaptability: 3, focus: 1, confidence: 1 } },
+      { text: '“你们从墙上判断，我照做，但每个弯都继续更新我。”', scores: { teamwork: 3, emotionalStability: 2, adaptability: 1 } }
     ]
   },
   {
-    text: '你网购的东西寄错了，商家态度还很敷衍，你会：',
+    text: '工程师：Safety Car 这圈结束，准备 restart。后车很近，我们也有机会偷袭前车。你会怎么对工程师说？',
     options: [
-      { text: '非常不爽，必须给差评', scores: { aggression: 3, emotion: 2, extraversion: 1, confidence: 1 } },
-      { text: '冷静沟通，要求合理赔偿', scores: { calculation: 2, emotionalStability: 2, focus: 2, charisma: 1 } },
-      { text: '算了，不想计较那么多', scores: { emotionalStability: 3, adaptability: 2, confidence: -1, humor: 1 } },
-      { text: '据理力争，但保持礼貌', scores: { confidence: 2, teamwork: 1, emotionalStability: 1, focus: 1 } }
+      { text: '“交给我，我会自己控制节奏，然后找机会扑上去。”', scores: { aggression: 3, confidence: 3, intuition: 1 } },
+      { text: '“提醒我 deployment 和 brake balance，我要把 restart 做到最精准。”', scores: { calculation: 2, focus: 3, teamwork: 1 } },
+      { text: '“持续报差距，我们先别犯错，机会自然会来。”', scores: { emotionalStability: 3, teamwork: 2, focus: 1 } },
+      { text: '“只要机会一开，我就直接上，不犹豫。”', scores: { aggression: 2, confidence: 2, adaptability: 1 } }
     ]
   },
   {
-    text: '你被公司裁员了，面对这个打击你会：',
+    text: '工程师：我们发现赛车前翼有轻微损伤，不到必须进站的程度，但会有些转向不足。你怎么回应？',
     options: [
-      { text: '愤怒、不甘，立刻开始找工作', scores: { aggression: 3, confidence: 2, focus: 2, emotion: 1 } },
-      { text: '冷静分析，趁机思考人生方向', scores: { calculation: 2, intuition: 2, emotionalStability: 2, adaptability: 1 } },
-      { text: '找朋友倾诉，寻求支持', scores: { extraversion: 2, teamwork: 2, emotion: 2, charisma: 1 } },
-      { text: '当作休息，调整心态再出发', scores: { emotionalStability: 3, humor: 1, adaptability: 2, confidence: 1 } }
+      { text: '“收到，我会绕着这个问题开，不用慌。”', scores: { emotionalStability: 3, adaptability: 2, confidence: 1 } },
+      { text: '“每圈大概损失多少？给我一个准确数字。”', scores: { calculation: 3, focus: 2, emotionalStability: 1 } },
+      { text: '“如果情况继续变差立刻告诉我，现在先留在外面。”', scores: { leadership: 2, teamwork: 2, focus: 1 } },
+      { text: '“给我前翼和差速器建议，我还能继续 fight。”', scores: { aggression: 2, adaptability: 2, focus: 2 } }
     ]
   },
   {
-    text: '你在公司会议上提出了一个方案，大部分人都不支持，你会：',
+    text: '工程师：队友在你身后 0.8 秒，车队正在考虑是否 swap positions 去追前车。你作为车手会怎么说？',
     options: [
-      { text: '坚持自己的观点，和他们争论', scores: { aggression: 3, confidence: 2, emotion: 1, extraversion: 1 } },
-      { text: '理性分析大家的顾虑，修改方案', scores: { calculation: 3, focus: 2, teamwork: 2, adaptability: 1 } },
-      { text: '放弃这个想法，听从大家意见', scores: { adaptability: 2, teamwork: 2, confidence: -1, emotionalStability: 1 } },
-      { text: '先保留意见，日后用成果证明', scores: { intuition: 2, confidence: 2, emotionalStability: 2, focus: 1 } }
+      { text: '“不用换，我的速度够，我自己证明。”', scores: { confidence: 3, aggression: 2, leadership: 1 } },
+      { text: '“如果他们更快，就让他们过去。我们先拿车队结果。”', scores: { teamwork: 3, emotionalStability: 2, leadership: 1 } },
+      { text: '“给我三圈，如果我拉不开节奏，我们再换。”', scores: { calculation: 2, confidence: 2, focus: 2 } },
+      { text: '“先告诉我我们两台车的胎龄和目标圈速差。”', scores: { calculation: 3, teamwork: 1, focus: 2 } }
     ]
   },
   {
-    text: '你暗恋的人突然主动约你，你会：',
+    text: '工程师：最后 10 圈，我们有一点 fuel saving 压力。要 lift and coast 才能到终点。你怎么回？',
     options: [
-      { text: '欣喜若狂，立刻答应', scores: { emotion: 3, extraversion: 1, confidence: 1, charisma: 1 } },
-      { text: '冷静分析 TA 的目的', scores: { calculation: 3, intuition: 2, emotionalStability: 1, focus: 1 } },
-      { text: '表面答应，内心纠结', scores: { emotion: 2, adaptability: 1, confidence: -1, extraversion: -1 } },
-      { text: '欣然接受，享受当下', scores: { humor: 1, confidence: 2, extraversion: 1, emotionalStability: 1 } }
+      { text: '“明白，我来管，但别让我损失太多圈速。”', scores: { focus: 2, emotionalStability: 2, calculation: 1 } },
+      { text: '“具体每圈要省多少？我可以按弯角精确执行。”', scores: { calculation: 3, focus: 3 } },
+      { text: '“能省的地方我会省，但只要他们来攻我就全开。”', scores: { aggression: 2, adaptability: 2, confidence: 1 } },
+      { text: '“你们每圈持续提醒我，我们一起把车带回终点。”', scores: { teamwork: 3, emotionalStability: 1, charisma: 1 } }
     ]
   },
   {
-    text: '你的好朋友的恋爱对象是个"渣"人，你会：',
+    text: '工程师：前方出现黄旗，可能马上变成 VSC。有人建议先 box 赌一个便宜停站。你会怎么回应？',
     options: [
-      { text: '直接告诉朋友，TA 被骗了', scores: { aggression: 2, confidence: 2, teamwork: 1, emotion: 1 } },
-      { text: '侧面提醒，让朋友自己发现', scores: { intuition: 2, emotionalStability: 1, adaptability: 1, charisma: 1 } },
-      { text: '无条件支持朋友的选择', scores: { teamwork: 3, emotionalStability: 1, confidence: -1, extraversion: 1 } },
-      { text: '等朋友倾诉时再给建议', scores: { empathy: 2, extraversion: 1, emotionalStability: 1, focus: 1 } }
+      { text: '“Box，box，我们激进一点，把机会吃下来。”', scores: { aggression: 3, adaptability: 2, confidence: 1 } },
+      { text: '“等一个弯，先确认是 VSC 还是局部黄旗。”', scores: { calculation: 3, focus: 2, emotionalStability: 1 } },
+      { text: '“其他人怎么做？我不想掉进 traffic 里。”', scores: { calculation: 2, teamwork: 1, intuition: 1, focus: 1 } },
+      { text: '“如果你们确信这是对的 race call，我信你们。”', scores: { teamwork: 3, emotionalStability: 2, charisma: 1 } }
     ]
   },
   {
-    text: '你在朋友圈看到有人炫富，你会：',
+    text: '工程师：后方车手连续在无线电抱怨你防守过晚，FIA 也在关注。你怎么回复？',
     options: [
-      { text: '内心不爽，觉得对方很肤浅', scores: { aggression: 2, emotion: 1, confidence: -1 } },
-      { text: '没什么感觉，关我什么事', scores: { emotionalStability: 3, adaptability: 1, focus: 1, intuition: 1 } },
-      { text: '默默点赞，内心有点羡慕', scores: { emotion: 2, confidence: -1, extraversion: 1, humor: -1 } },
-      { text: '当没看见，专注于自己的生活', scores: { confidence: 2, focus: 2, emotionalStability: 1, adaptability: 1 } }
+      { text: '“随他们抱怨，我就是在比赛。”', scores: { aggression: 3, confidence: 2, emotion: 1 } },
+      { text: '“收到，我会保持干净，但不会让他们轻松。”', scores: { emotionalStability: 2, focus: 2, aggression: 1 } },
+      { text: '“告诉我具体哪个动作最接近边界，我会留在线内。”', scores: { calculation: 2, teamwork: 1, focus: 2 } },
+      { text: '“明白，别管噪音，低头继续往前看。”', scores: { emotionalStability: 3, leadership: 1, focus: 2 } }
     ]
   },
   {
-    text: '你定好了周末旅行计划，但突然朋友也叫你去玩，你会：',
+    text: '工程师：我们有一个备选策略，硬胎跑到最后会非常难，但 track position 会更好。你会如何表态？',
     options: [
-      { text: '取消旅行计划，去和朋友玩', scores: { extraversion: 3, adaptability: 2, confidence: 1, teamwork: 1 } },
-      { text: '坚持按原计划旅行，朋友可以去一起去', scores: { confidence: 2, focus: 2, leadership: 1, adaptability: 1 } },
-      { text: '很纠结，两个都放不下', scores: { emotion: 2, adaptability: 1, intuition: 1, emotionalStability: -1 } },
-      { text: '看哪个更重要，再做决定', scores: { calculation: 2, intuition: 1, focus: 1, emotionalStability: 1 } }
+      { text: '“上硬胎吧，赛道位置最重要。”', scores: { confidence: 2, calculation: 2, leadership: 1 } },
+      { text: '“我不完全信，给我更快的胎，我想主动去攻。”', scores: { aggression: 2, intuition: 2, confidence: 1 } },
+      { text: '“再把衰减预测给我过一遍。”', scores: { calculation: 3, focus: 2 } },
+      { text: '“哪个方案总用时更快，我们就定哪个，我来执行。”', scores: { teamwork: 2, focus: 2, emotionalStability: 2 } }
     ]
   },
   {
-    text: '你在一个陌生城市迷路了，你会：',
+    text: '工程师：你刚刚有一个锁死，轮胎表面温度升高。接下来几圈需要稍微 reset 一下节奏。你怎么回应？',
     options: [
-      { text: '自己 Google 导航一定能找到', scores: { confidence: 2, intuition: 1, focus: 2, adaptability: 1 } },
-      { text: '问路人或者当地人', scores: { extraversion: 3, teamwork: 1, charisma: 1, confidence: 1 } },
-      { text: '打个车直接去目的地', scores: { calculation: 1, confidence: 2, focus: 1, adaptability: 2, humor: 1 } },
-      { text: '没关系，就当顺便逛逛', scores: { adaptability: 3, emotionalStability: 2, humor: 1, confidence: -1 } }
+      { text: '“收到，我先冷静下来，把节奏重新建起来。”', scores: { emotionalStability: 3, adaptability: 2, focus: 1 } },
+      { text: '“把你们希望我留余量的弯角告诉我。”', scores: { calculation: 2, focus: 3, teamwork: 1 } },
+      { text: '“没问题，我知道刚刚发生了什么。”', scores: { confidence: 2, focus: 1, emotionalStability: 1 } },
+      { text: '“我刚丢了一点，现在下一圈就拿回来。”', scores: { aggression: 2, confidence: 2, emotion: 1 } }
     ]
   },
   {
-    text: '你的老板给你安排了超额的工作量，你会：',
+    text: '工程师：DRS train 已经形成，你前后都卡在 1 秒里。超车和防守都很难。你最像哪种车手回应？',
     options: [
-      { text: '直接拒绝或者抱怨', scores: { aggression: 3, confidence: 2, extraversion: 1, emotion: 1 } },
-      { text: '接受但会跟老板沟通困难', scores: { teamwork: 2, charisma: 1, focus: 1, emotionalStability: 1 } },
-      { text: '默默加班完成，熬过去', scores: { focus: 3, emotionalStability: 2, confidence: 1, adaptability: 1 } },
-      { text: '合理安排，分清轻重缓急', scores: { calculation: 3, adaptability: 2, intuition: 1, focus: 2 } }
+      { text: '“我会一直给前车压力，逼他自己失误。”', scores: { aggression: 3, intuition: 1, confidence: 2 } },
+      { text: '“先管好电量，耐心等，到了正确位置再出手。”', scores: { calculation: 3, focus: 2, emotionalStability: 1 } },
+      { text: '“每条直道继续报电池和差距，我按信息来打。”', scores: { teamwork: 3, focus: 1, adaptability: 1 } },
+      { text: '“如果赛道上过不去，我们就从策略上赢他们。”', scores: { calculation: 2, adaptability: 2, leadership: 1 } }
     ]
   },
   {
-    text: '你和伴侣吵架了冷战了，你会怎么打破僵局：',
+    text: '工程师：我们担心可能有底板磨损，需要你给更清晰的车感反馈。你会怎么回答？',
     options: [
-      { text: '等对方先道歉', scores: { aggression: 1, emotionalStability: 1, confidence: 1, adaptability: -1 } },
-      { text: '主动示好沟通', scores: { teamwork: 2, emotion: 2, charisma: 1, extraversion: 1, emotionalStability: 2 } },
-      { text: '用幽默化解尴尬', scores: { humor: 3, confidence: 2, charisma: 2, emotionalStability: 1 } },
-      { text: '冷静分析谁对谁错', scores: { calculation: 3, focus: 2, intuition: 1, emotion: -1 } }
+      { text: '“高速入弯后轴在动，但我还能接受。”', scores: { focus: 2, confidence: 1, calculation: 1 } },
+      { text: '“这圈我给你们完整的逐弯反馈。”', scores: { teamwork: 3, focus: 2, leadership: 1 } },
+      { text: '“这不理想，但别担心，我开过更差的车。”', scores: { humor: 2, emotionalStability: 2, confidence: 1 } },
+      { text: '“你们把数据看到的告诉我，我来对感觉。”', scores: { calculation: 2, teamwork: 2, focus: 2 } }
     ]
   },
   {
-    text: '你在公司年会上被安排表演节目，你会：',
+    text: '工程师：比赛最后阶段，P4 很稳，但 P3 在前面 3 秒。我们可以保住结果，也可以冒险再追一把。你怎么说？',
     options: [
-      { text: '非常乐意，展示自己', scores: { extraversion: 3, confidence: 3, charisma: 2, humor: 1 } },
-      { text: '非常紧张，想推掉', scores: { emotion: 2, emotionalStability: -1, confidence: -2, extraversion: -2 } },
-      { text: '勉强接受，认真准备', scores: { focus: 2, adaptability: 1, confidence: 1, teamwork: 1 } },
-      { text: '拉上同事一起表演', scores: { teamwork: 3, extraversion: 2, charisma: 1, leadership: 1 } }
+      { text: '“去追他们吧，我不是来拿安全的 P4 的。”', scores: { aggression: 3, confidence: 2, leadership: 1 } },
+      { text: '“差距趋势怎么样？如果现实上追得到，我就推。”', scores: { calculation: 3, focus: 2, confidence: 1 } },
+      { text: '“先把分数锁住，只要他们犯错我就会在那里。”', scores: { emotionalStability: 3, intuition: 1, focus: 1 } },
+      { text: '“把目标和工具给我，我们看看还能做什么。”', scores: { teamwork: 2, adaptability: 2, confidence: 1 } }
     ]
   },
   {
-    text: '你的好朋友向你借了一笔钱迟迟不还，你会：',
+    text: '工程师：你出站后掉进 traffic 了，前方慢车会毁掉这个 out-lap。你准备怎么回应？',
     options: [
-      { text: '直接开口要', scores: { aggression: 2, confidence: 2, extraversion: 1, emotion: 1 } },
-      { text: '委婉地暗示TA', scores: { charisma: 2, intuition: 1, emotionalStability: 1, teamwork: 1 } },
-      { text: '算了，就当认清一个人', scores: { emotionalStability: 3, adaptability: 2, confidence: -1, humor: -1 } },
-      { text: '下次再也不借了，这次算了', scores: { calculation: 1, focus: 1, intuition: 1, confidence: 1 } }
+      { text: '“这太离谱了，我现在就需要他们让开。”', scores: { aggression: 3, emotion: 2, confidence: 1 } },
+      { text: '“收到，我会自己创造空档，调整准备方式。”', scores: { adaptability: 3, focus: 2, emotionalStability: 1 } },
+      { text: '“如果我放弃这一圈准备下一圈，损失是多少？”', scores: { calculation: 3, focus: 2 } },
+      { text: '“继续跟我说情况，我们尽量把这一圈救回来。”', scores: { teamwork: 2, charisma: 1, emotionalStability: 1 } }
     ]
   },
   {
-    text: '你在群里发消息没人回，你会：',
+    text: '工程师：最后一圈，前车在挣扎，后车也在 DRS 内。全队频道都很紧张。你会给出哪种回应？',
     options: [
-      { text: '很尴尬，觉得被孤立了', scores: { emotion: 2, confidence: -1, emotionalStability: -1 } },
-      { text: '再发一条或者私聊', scores: { extraversion: 2, confidence: 1, charisma: 1, teamwork: 1 } },
-      { text: '无所谓，爱回不回', scores: { emotionalStability: 3, confidence: 2, adaptability: 1, focus: 1 } },
-      { text: '反思是不是自己说错话了', scores: { intuition: 2, calculation: 1, emotion: 1, confidence: -1 } }
+      { text: '“先别说话，让我把这一圈跑完。”', scores: { focus: 3, confidence: 2, emotionalStability: 1 } },
+      { text: '“继续报差距，每一个零点几都重要。”', scores: { teamwork: 2, focus: 2, calculation: 1 } },
+      { text: '“我能搞定，我们一起把它带回家。”', scores: { leadership: 3, charisma: 2, emotionalStability: 1 } },
+      { text: '“这就是比赛，来吧，狠狠干一圈。”', scores: { aggression: 2, confidence: 2, emotion: 2 } }
     ]
   }
 ];

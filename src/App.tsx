@@ -246,11 +246,11 @@ export default function App() {
               
               <div className="space-y-4">
                 <h1 className="text-2xl md:text-3xl font-black italic tracking-tighter leading-tight text-center">
-                  F1 Driver <br />
-                  <span className="text-f1-red">Personality</span> Test
+                  F1 Team Radio <br />
+                  <span className="text-f1-red">Driver Match</span> Test
                 </h1>
                 <p className="text-f1-gray text-xl max-w-md mx-auto">
-                  找出与你最匹配的2026赛季F1车手
+                  进入真实比赛TR场景，选择你的车手式回应，找出最像你的F1车手
                 </p>
               </div>
 
@@ -261,7 +261,7 @@ export default function App() {
                 className="group relative inline-flex items-center gap-3 bg-f1-red hover:bg-f1-red/90 px-8 py-4 rounded-sm font-bold uppercase tracking-widest transition-colors overflow-hidden"
               >
                 <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
-                <span className="f1-font">Start Session</span>
+                <span className="f1-font">Go On Radio</span>
                 <ChevronRight size={20} />
               </motion.button>
             </motion.div>
@@ -277,7 +277,7 @@ export default function App() {
             >
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-f1-border pb-6">
                 <div className="space-y-1">
-                  <div className="text-f1-red font-bold uppercase tracking-tighter text-sm f1-font">Session Progress</div>
+                  <div className="text-f1-red font-bold uppercase tracking-tighter text-sm f1-font">Race Progress</div>
                   <div className="text-base font-black italic uppercase f1-font">
                     LAP {String(currentQuestion + 1).padStart(2, '0')} <span className="text-white/20">/ {QUESTIONS.length}</span>
                   </div>
@@ -289,6 +289,9 @@ export default function App() {
                 <div className="text-right">
                   <div className="text-2xl font-black f1-font text-f1-red">TEAM</div>
                   <div className="text-2xl font-black f1-font">RADIO</div>
+                <div className="text-right text-sm text-white/60 chinese-text">
+                  工程师给出局势，你决定车手怎么回
+                </div>
                 </div>
               </div>
               <div className="flex items-end justify-center gap-1 h-16">
@@ -422,7 +425,7 @@ export default function App() {
                 className="absolute bottom-32 text-center"
               >
                 <div className="text-2xl md:text-3xl font-black italic f1-font text-white">
-                  CALCULATING RESULT
+                  MATCHING DRIVER
                 </div>
               </motion.div>
             </motion.div>
@@ -552,7 +555,7 @@ export default function App() {
               >
                 <div className="text-left">
                   <div className="bg-f1-card border border-f1-border p-6 md:p-8 space-y-4">
-                    <div className="text-base uppercase font-bold tracking-widest f1-font" style={{ color: resultDriver.teamColor }}>Driver Profile</div>
+                    <div className="text-base uppercase font-bold tracking-widest f1-font" style={{ color: resultDriver.teamColor }}>Radio Persona</div>
                     <div className="text-xl md:text-2xl text-white/90 leading-relaxed">{resultDriver.description}</div>
                   </div>
                 </div>
@@ -565,7 +568,7 @@ export default function App() {
                   className="inline-flex items-center gap-3 bg-white text-f1-black px-8 py-4 rounded-sm font-bold uppercase tracking-widest text-sm f1-font hover:bg-f1-red hover:text-white transition-all shadow-xl"
                 >
                   <RotateCcw size={20} />
-                  <span>Restart Session</span>
+                  <span>Restart Race</span>
                 </motion.button>
               </div>
               </motion.div>
